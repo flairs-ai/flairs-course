@@ -5,7 +5,7 @@ import {
 } from "@adobe/redux-saga-promise";
 import { camelizeKeys } from "humps";
 
-import { auth } from "../../shared/services/gotrue";
+import { auth, serializeUser } from "../../shared/services/gotrue";
 import { promiseActions } from "./auth.redux";
 
 function* signup(action) {
@@ -19,6 +19,17 @@ function* signup(action) {
   }
 }
 
+function* signupConfirm(action) {
+  try {
+    const { token } = action.payload;
+    const user = yield auth.confirm(token, true);
+    yield resolvePromiseAction(action, serializeUser(user));
+  } catch (error) {
+    yield rejectPromiseAction(action);
+  }
+}
+
 export function* watchAuth() {
   yield takeLatest(promiseActions.signup.trigger, signup);
+  yield takeLatest(promiseActions.signupConfirm.trigger, signupConfirm);
 }

@@ -1,17 +1,33 @@
-import React from "react";
-import { useLocation, useRouteMatch } from "react-router";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory, useLocation, useRouteMatch } from "react-router";
 import { Redirect } from "react-router-dom";
 import queryString from "query-string";
 import { FormattedMessage, useIntl } from "react-intl";
 
+import Routes from "../../../config/routes";
+import { promiseActions } from "../../../modules/auth";
 import { MessageLayout } from "../../../shared/components/layout";
 
 export const SignupConfirm = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const match = useRouteMatch();
+  const history = useHistory();
   const intl = useIntl();
   const { token: queryToken } = queryString.parse(location.search);
   const { token } = location.state ?? {};
+
+  useEffect(() => {
+    (async () => {
+      if (token) {
+        try {
+          await dispatch(promiseActions.signupConfirm({ token }));
+          history.push(Routes.home);
+        } catch {}
+      }
+    })();
+  }, [dispatch, token, history]);
 
   if (queryToken) {
     return (
@@ -33,8 +49,7 @@ export const SignupConfirm = () => {
     >
       <FormattedMessage
         description="Signup confirm / copy"
-        defaultMessage="Token value: {token}"
-        values={{ token }}
+        defaultMessage="You'll be redirected in a moment..."
       />
     </MessageLayout>
   );
