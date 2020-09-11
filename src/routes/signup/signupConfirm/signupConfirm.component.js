@@ -24,7 +24,9 @@ export const SignupConfirm = () => {
         try {
           await dispatch(promiseActions.signupConfirm({ token }));
           history.push(Routes.home);
-        } catch {}
+        } catch {
+          history.push(Routes.signup.confirmError);
+        }
       }
     })();
   }, [dispatch, token, history]);
