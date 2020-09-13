@@ -1,3 +1,6 @@
+import { fork, all } from "redux-saga/effects";
+import { watchAuth } from "../modules/auth/auth.sagas";
+
 export default function* rootSaga() {
-  console.log("Root saga is running!");
+  yield all([fork(watchAuth)]);
 }

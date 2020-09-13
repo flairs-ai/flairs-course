@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@adobe/redux-saga-promise": "^1.1.1",
     "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "gotrue-js": "^0.9.27",
+    "humps": "^2.0.1",
     "polished": "^3.6.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

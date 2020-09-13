@@ -1,3 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
-export default combineReducers({});
+import { reducer as auth } from "../modules/auth/auth.redux";
+
+export default combineReducers({
+  auth,
+});
