@@ -14,6 +14,7 @@
     "gotrue-js": "^0.9.27",
     "humps": "^2.0.1",
     "polished": "^3.6.6",
+    "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^6.8.1",

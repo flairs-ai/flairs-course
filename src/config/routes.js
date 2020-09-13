@@ -3,5 +3,6 @@ export default {
   signup: {
     index: "/signup",
     success: "/signup/success",
+    confirm: "/signup/confirm",
   },
 };
