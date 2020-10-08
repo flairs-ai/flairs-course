@@ -15,3 +15,10 @@ export const h5 = css`
   font-weight: 700;
   font-family: ${fonts.roboto};
 `;
+
+export const input = css`
+  font-size: 14px;
+  line-height: 40px;
+  font-weight: 400;
+  font-family: ${fonts.roboto};
+`;

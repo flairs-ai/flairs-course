@@ -18,6 +18,13 @@ export const Colors = {
     primary: colors.black,
     secondary: colors.codGray,
   },
+  input: {
+    background: colors.mineShaft,
+    border: colors.gray,
+  },
+  button: {
+    borderDisabled: colors.gray,
+  },
 };
 
 export const Radii = {
