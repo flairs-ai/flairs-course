@@ -39,7 +39,7 @@ export const SignupForm = () => {
           as={
             <EmailInput
               placeholder={intl.formatMessage({
-                description: "Signup / email input placeholder",
+                description: "Signup / email input placeholder ",
                 defaultMessage: "Your e-mail",
               })}
             />
