@@ -7,7 +7,9 @@ import { FormattedMessage, useIntl } from "react-intl";
 
 import Routes from "../../../config/routes";
 import { promiseActions } from "../../../modules/auth";
+import { Spin } from "../../../shared/components/spin";
 import { MessageLayout } from "../../../shared/components/layout";
+import { Colors } from "../../../theme";
 
 export const SignupConfirm = () => {
   const dispatch = useDispatch();
@@ -48,6 +50,8 @@ export const SignupConfirm = () => {
         description: "Signup confirm / title",
         defaultMessage: "Confirming e-mail address...",
       })}
+      iconColor={Colors.primary}
+      IconComponent={Spin}
     >
       <FormattedMessage
         description="Signup confirm / copy"

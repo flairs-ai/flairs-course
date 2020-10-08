@@ -11,6 +11,7 @@ import * as auth from "../../../modules/auth";
 import { CenterPanelLayout } from "../../../shared/components/layout";
 import { FormError, Input } from "../../../shared/components/form";
 import { SubmitButton, EmailInput } from "./signupForm.styles";
+import { Spin } from "../../../shared/components/spin";
 
 export const SignupForm = () => {
   const dispatch = useDispatch();
@@ -60,7 +61,7 @@ export const SignupForm = () => {
           as={
             <EmailInput
               placeholder={intl.formatMessage({
-                description: "Signup / email input placeholder ",
+                description: "Signup / email input placeholder",
                 defaultMessage: "Your e-mail",
               })}
             />
@@ -82,10 +83,14 @@ export const SignupForm = () => {
         />
 
         <SubmitButton type="submit" block disabled={!formState.isValid}>
-          <FormattedMessage
-            description="Signup / submit button"
-            defaultMessage="Submit"
-          />
+          {formState.isSubmitting ? (
+            <Spin style={{ fontSize: 24 }} />
+          ) : (
+            <FormattedMessage
+              description="Signup / submit button"
+              defaultMessage="Submit"
+            />
+          )}
         </SubmitButton>
       </form>
     </CenterPanelLayout>
