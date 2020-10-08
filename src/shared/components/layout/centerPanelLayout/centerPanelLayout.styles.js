@@ -27,3 +27,9 @@ export const Title = styled.h3`
   margin-bottom: 32px;
   text-align: center;
 `;
+
+export const IconWrapper = styled.div`
+  text-align: center;
+  margin-bottom: 32px;
+  color: ${({ theme }) => theme.color};
+`;
