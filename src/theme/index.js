@@ -13,6 +13,7 @@ export const Colors = {
     primary: colors.white,
     secondary: rgba(colors.white, 0.7),
     tertiary: rgba(colors.white, 0.5),
+    error: colors.hotPink,
   },
   background: {
     primary: colors.black,
